@@ -9,16 +9,16 @@ class Modalidade:
 
     def getMod(self):
         
-        modalidades = []
+        modalidades = {}
 
         if conn.is_connected():
 
             cursor = conn.cursor()
-            cursor.execute("SELECT nome FROM modalidade ORDER BY id")
+            cursor.execute("SELECT id, nome FROM modalidade ORDER BY id")
             result = cursor.fetchall()
 
             for mod in result:
-                modalidades.append(mod[0])
+                modalidades[mod[1]] = mod[0]
 
             cursor.close()
             conn.close()

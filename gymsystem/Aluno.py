@@ -18,7 +18,10 @@ class Aluno:
         return self.__matricula
     
     def getCPF(self):
-        return self.nome
+        return self.__cpf
 
     def setCPF(self, cpf):
         self.__cpf = cpf
+
+    def __repr__(self):
+        return self.nome + ', ' + str(self.getCPF()) + ', ' + self.email + ', ' + self.modalidades + ', ' + self.sexo + ', ' + self.fone_res + ', ' + self.fone_cel + ', ' + self.data_nasc + ', ' + self.endereco + ', ' + self.obs + ', ' + self.status

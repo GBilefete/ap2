@@ -8,12 +8,16 @@ if conn.is_connected():
     form = FormAluno()
     aluno = form.show()
 
+    #print(aluno.__repr__())
+    #quit()
+
     if aluno != None:
 
         try:
 
-            query = "INSERT INTO alunos (nome, CPF, email, sexo, telefone_res, telefone_celular, data_nascimento, endereco, observacoes, status) VALUES ("
-            query += " '" + aluno.nome + "' , '" + aluno.cpf + "' , '" + aluno.email + "' , '" + aluno.sexo + "' , '" + aluno.fone_res + "' , '" + aluno.fone_cel + "' , '" + aluno.data_nasc + "' , '" + aluno.endereco + "' , '" + aluno.obs + "' , '" + aluno.status + "')"
+            query = "INSERT INTO alunos (nome, CPF, email, modalidades, sexo, telefone_res, telefone_celular, data_nascimento, endereco, observacoes, status) VALUES ("
+            query += " '" + aluno.nome + "' , '" + aluno.getCPF() + "' , '" + aluno.email + "' , '" + aluno.modalidades + "' , '" + aluno.sexo + "' , '" + aluno.fone_res + "' , '" + aluno.fone_cel + "' , '" + aluno.data_nasc + "' , '" + aluno.endereco + "' , '" + aluno.obs + "' , '" + aluno.status + "')"
+            
 
             #print(query)
             print("Cadastro concluído com sucesso!")
@@ -21,6 +25,10 @@ if conn.is_connected():
             cursor = conn.cursor()
             cursor.execute(query)
             conn.commit()
+
+            #last_id = cursor.lastrowid
+            #print(last_id) 
+
             cursor.close()
             conn.close()
 

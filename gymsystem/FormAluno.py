@@ -17,10 +17,14 @@ class FormAluno:
                 gui.Radio("Feminino", "sexo", key="F") ,
                 gui.Radio("Masculino", "sexo", key="M")
             ],
-            [gui.Text("Modalidades: ", size=(15, 1)), gui.Listbox(modalidades, size=(20,8), key='_LIST_')],
+            [gui.Text("Modalidades: ", size=(15, 1)), gui.Listbox(list(modalidades.keys()), size=(20,8),  select_mode=gui.LISTBOX_SELECT_MODE_EXTENDED, key='_MOD_')],
             [gui.Text("Telefone residencial: ", size=(15, 1)), gui.Input(key="txtFone_res")],
             [gui.Text("Telefone celular: ", size=(15, 1)), gui.Input(key="txtFone_cel")],
-            [gui.Text("Data de nascimento: ", size=(15, 1)), gui.Input(key="data_nasc")],
+            [
+                gui.Text("Data de nascimento: ", size=(15, 1)), 
+                gui.Input("", key="data_nasc"),
+                gui.CalendarButton("Selecione", key="date")
+            ],
             [gui.Text("Endereço: ", size=(15, 1)), gui.Input(key="txtEndereco")],
             [
                 gui.Text("Observações: ", size=(15, 1)), 
@@ -40,6 +44,7 @@ class FormAluno:
         nome = self.valores["txtNome"]
         cpf = self.valores["txtCpf"]
         email = self.valores["txtEmail"]
+        modalidades = ', '.join(self.valores["_MOD_"])
         if self.valores["M"]:
             sexo = "M"
         else:
@@ -56,6 +61,7 @@ class FormAluno:
             alun.nome = nome
             alun.setCPF(cpf)
             alun.email = email
+            alun.modalidades = str(modalidades)
             alun.sexo = sexo
             alun.fone_res = fone_res
             alun.fone_cel = fone_cel

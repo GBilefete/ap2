@@ -13,7 +13,7 @@ if conn.is_connected():
     try:
         matricula = input("Digite a matrícula do aluno que deseja editar: ")
 
-        print("Campos: nome, CPF, email, sexo, telefone_res, telefone_celular, data_nascimento, endereco, observacoes, status")
+        print("Campos: nome, CPF, email, modalidades, sexo, telefone_res, telefone_celular, data_nascimento, endereco, observacoes, status")
 
         campo_edit = input("Digite o campo que deseja editar: ")
         campo_value = input("Digite o novo valor do " + campo_edit + ": ")
@@ -28,13 +28,14 @@ if conn.is_connected():
             print("Nome: " + aluno[1])
             print("CPF: " + aluno[2])
             print("E-mail: " + aluno[3])
-            print("Sexo: " + aluno[4])
-            print("Telefone residencial: " + aluno[5])
-            print("Telefone celular: " + aluno[6])
-            print("Data de nascimento: " + str(aluno[7]))
-            print("Endereço: " + str(aluno[8]))
-            print("Observações: " + aluno[9])
-            print("Status: " + str(aluno[10]))
+            print("Modalidades: " + aluno[4])
+            print("Sexo: " + aluno[5])
+            print("Telefone residencial: " + aluno[6])
+            print("Telefone celular: " + aluno[7])
+            print("Data de nascimento: " + str(aluno[8]))
+            print("Endereço: " + str(aluno[9]))
+            print("Observações: " + aluno[10])
+            print("Status: " + str(aluno[11]))
             print("------------------------")
 
         print("Cadastro alterado com sucesso!")
